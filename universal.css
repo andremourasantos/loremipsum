@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+/*↓ CORPO ↓*/
+body {background-color: var(--cor_plano_de_fundo); max-width: 1440px; width: 100vw; margin: auto;}
+main.duas_colunas {display: flex; flex-direction: row; justify-content: center; align-items: center; height: 75vh;}
+main.duas_colunas > section {width: 50vw;}
+
+/*↓ BOTÕES ↓*/
+.btn_menu_icone {width: 40px; height: 40px;}
+.btn_menu_icone > img {width: 100%; height: fit-content;}
+.container_btns_popup {display: flex; align-items: center; justify-content: center; gap: 20px; flex-grow: 1; width: 100%;}
+.btn_popup {min-height: 50px; width: 100%; background-color: var(--cor_plano_de_fundo_2); color: var(--cor_texto_btn_secundario); border-radius: var(--arredondamento_borda_btn);}
+.btn_fechar_popup {background-color: var(--cor_btn_secundario); color: var(--cor_texto_btn_secundario);}
+.btn_acao_popup {background-color: var(--cor_btn_principal); color: var(--cor_texto_btn_principal);}
+
+/*↓ CONTEÚDO ↓*/
+header {height: 15vh; display: flex; align-items: center;}
+header > section {height: calc(100% - 20px); padding: 10px 20px; display: flex; gap: 20px; align-items: center;}
+header > section:first-of-type p {color: var(--cor_texto);}
+header > section:first-of-type {flex-grow: 2;}
+header > section:nth-of-type(2) {justify-content: end; align-items: center; flex-grow: 1; gap: 20px; margin-right: 10px;}
+#logo_cabeçalho {height: 60px; width: fit-content;}
+
+    /*↓ FERRAMENTA ↓*/
+
+
+    /*↓ INFORMAÇÕES ↓*/
+    #informacoes > * {text-align: center;}
+    #container_informacoes {height: 80%; width: 80%; margin: auto;}
+    #container_informacoes h2 {margin-top: 20px;}
+    #container_informacoes p {margin: 10px auto;}
+
+/*↓ ÍCONES ↓*/
+#icones_cabecalho > button {background-size: contain; background-position: center; background-repeat: no-repeat; background-color: var(--cor_icones); background-position: center;}
+
+#icones_cabecalho > button:first-child {-webkit-mask-image: url(imagens/modo-claro.svg); mask-image: url(imagens/modo-claro.svg);}
+#icones_cabecalho > button:last-child {-webkit-mask-image: url(imagens/info.svg); mask-image: url(imagens/info.svg);}
+
+/*↓ RODAPÉ ↓*/
+footer {height: fit-content; padding: 20px 40px; display: flex; align-items: center; justify-content: center; height: calc(10vh - 40px);}
+footer p, footer a {text-align: center; color: var(--cor_texto);}
+
+/*↓ POPUPS ↓*/
+#container_popup {display: flex; align-items: center; justify-content: center; position: fixed; inset: 0 0 0 0;  background-color: #00000030; backdrop-filter: blur(2px);}
+
+article.popup {display: block; width: calc(80vw - 80px); max-width: 400px; min-height: fit-content; max-height: 80%; overflow-y: scroll; background-color: var(--cor_plano_de_fundo); border-radius: var(--arredondamento_borda); padding: 40px; text-align: center; z-index: 999; animation: popupAparecer 250ms ease-out;}
+
+    @keyframes popupAparecer {
+        0% {transform: scale(0.9); opacity: 0;}
+        100% {transform: scale(1); opacity: 1;}
+    }
+
+    @keyframes popupDesaparecer {
+        0% {transform: scale(1); opacity: 1;}
+        100% {transform: scale(0.9); opacity: 0;}
+    }
+
+article.popup h2 {margin-top: 20px;}
+article.popup p {margin: 20px auto;}
+.container_btns_popup {margin-top: 20px;}

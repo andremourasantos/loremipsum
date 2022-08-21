@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta name="theme-color" content="#COR"/>
+    
+    <!-- SEO TAGS -->
+    <meta property="og:title" content="Gerador de Lorem Ipsum">
+    <meta property="og:description" content="DESCRIÇÃO.">
+    <meta name="description" content="DESCRIÇÃO.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="www.andremourasantos.com/loremipsum">
+    <meta name="image" property="og:image" content="https://andremourasantos.com/loremipsum/capa.png">
+
+    <!-- OUTRAS TAGS -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="André Moura Santos">
+    <meta name="application-name" content="Link de WhatsApp">
+
+    <!-- LINKS -->
+    <link rel="stylesheet" href="essencial.css">
+    <link rel="stylesheet" href="universal.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+
+    <title>Gerador de Lorem Ipsum</title>
+</head>
+<body>
+    <header>
+        <!--ESQUERDA/CIMA-->
+        <section>
+            <img id="logo_cabeçalho" src="https://andremourasantos.com/wplink/imagens/info_modo_escuro.png" alt="Logo do Gerador de Lorem Ipsum." width="60" height="60">
+            <div>
+                <h1>Gerador de Lorem Ipsum</h1>
+                <p>Crie textos genéricos para utilizar em seus protótipos.</p>
+            </div>
+        </section>
+        
+        <!--DIREITA/BAIXO-->
+        <section id="icones_cabecalho">
+            <!--POSIÇÃO FIXA: ALTERAR TEMA--><button class="btn_menu_icone" onclick="alterarTema(1)"></button>
+            <button class="btn_menu_icone" onclick="abrirPopup('#popup_ajustes')"></button>
+            <!--POSIÇÃO FIXA: SOBRE O PROJETO--><button class="btn_menu_icone" onclick="abrirPopup('#popup_sobre')"></button>
+        </section>
+    </header>
+    <main class="duas_colunas">
+        <!--ESQUERDA/CIMA-->
+        <section id="container_ferramenta">
+            <div id="ferramenta">
+                <div id="entrada_1">
+                    <img src="https://andremourasantos.com/wplink/imagens/info_modo_escuro.png" alt="">
+                    <div>
+                        <p>Quantidade e tamanho do texto</p>
+                        <div>
+                            <input type="number" name="quantidade_txt" id="quantidade_txt" value="1" max="99" min="1">
+                            <select name="tamanho_txt" id="tamano_txt">
+                                <option value="palavra">Palavra</option>
+                                <option value="frase">Frase</option>
+                                <option value="paragrafo">Parágrafo</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="saida">
+                <textarea name="saida_txt" id="saida_txt" cols="30" rows="10"></textarea>
+                <button id="copiar_saida_txt">Copiar</button>
+            </div>
+            <button id="gerar_lorem">Gerar texto</button>
+        </section>
+
+        <!--DIREITA/BAIXO-->
+        <section id="informacoes">
+            <article id="container_informacoes">
+                <img loading="lazy" src="imagens/questao.png" alt="Ícone de pergunta." height="96" width="96">
+                <h2>Como funciona?</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quaerat odio animi fuga, quos consectetur quod fugiat eveniet similique dolor, earum aperiam a nesciunt ratione illo commodi, voluptatum cumque nihil. Soluta architecto labore, nisi iusto dolor ea minima nam veritatis?</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quaerat odio animi fuga, quos consectetur quod fugiat eveniet similique dolor, earum aperiam a nesciunt ratione illo commodi, voluptatum cumque nihil. Soluta architecto labore, nisi iusto dolor ea minima nam veritatis?</p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Desenvolvido por <a href="http://andremourasantos.com" target="_blank" rel="next">André Moura Santos</a>. Ícones de <a href="https://phosphoricons.com/" target="_blank" rel="noopener noreferrer">Phospor Icons</a> e <a href="https://www.flaticon.com/authors/kawaii/flat" target="_blank" rel="noopener noreferrer">Flaticon</a>. Feito no &#x1F1E7;&#x1F1F7; Brasil.</p>
+    </footer>
+
+    <!--POPUPS-->
+    <section style="display: none;" id="container_popup">
+        <!--SOBRE-->
+        <article class="popup" id="popup_sobre">
+            <img src="imagens/sobre_popup.png" alt="" height="128" width="128">
+            <aside>
+                <h2>Sobre o projeto</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, illo. Quisquam ducimus recusandae, asperiores accusantium facere quia alias incidunt animi praesentium odio eaque necessitatibus eius possimus, ut aliquid vero!</p>
+                <p>Ipsam, sit earum corrupti suscipit praesentium distinctio incidunt aut accusantium, obcaecati excepturi quod vero, est aliquid magni delectus blanditiis assumenda cupiditate.</p>
+                <div class="container_btns_popup">
+                    <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('#popup_sobre')">Fechar</button>
+                    <button class="btn_popup btn_acao_popup">GitHub</button>
+                </div>
+            </aside>
+        </article>
+
+        <!--AJUSTES-->
+        <article class="popup" id="popup_ajustes">
+            <img src="imagens/novidades_versao.png" alt="" height="128" width="128">
+            <aside>
+                <h2>Ajustes</h2>
+                <p><em>&gt; Essa função ainda está em desenvolvimento. &lt;</em></p>
+                <p>Aqui você poderá conferir ajustes e opções de acessibilidade para facilitar o seu uso da página.</p>
+                <div class="container_btns_popup">
+                    <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('#popup_ajustes')">Fechar</button>
+                </div>
+            </aside>
+        </article>
+    </section>
+<script defer src="essencial.js"></script>
+<script defer src="index.js"></script>
+</body>
+</html>
