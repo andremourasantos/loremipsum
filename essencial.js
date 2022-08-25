@@ -8,19 +8,16 @@ function alterarTema(interacao=0){
 
     if(localStorage.getItem('temaDaPagina') === 'Escuro'){
         if(interacao === 1){setTimeout(() => {
-            document.body.classList.remove('modo_escuro'); localStorage.setItem('temaDaPagina', 'Claro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)'
-        }, 125);} else {document.body.classList.add('modo_escuro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)'}}
+            document.body.classList.remove('modo_escuro'); localStorage.setItem('temaDaPagina', 'Claro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)';
+        }, 125);} else {document.body.classList.add('modo_escuro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)';}}
         
         else {if(interacao ===1){setTimeout(() => {
-            document.body.classList.add('modo_escuro'); localStorage.setItem('temaDaPagina', 'Escuro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)'
-        }, 125);} else {document.body.classList.remove('modo_escuro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)'}
+            document.body.classList.add('modo_escuro'); localStorage.setItem('temaDaPagina', 'Escuro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)';
+        }, 125);} else {document.body.classList.remove('modo_escuro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)';}
     }
-}
 
-//↓↓ ACIONADORES
-document.querySelector('#alteraTemaPagina').addEventListener('click', ()=>{alterarTema(1)})
-document.querySelector('#icone_Ajustes').addEventListener('click', ()=>{abrirPopup('#popup_ajustes')})
-document.querySelector('#icone_Info').addEventListener('click', ()=>{abrirPopup('#popup_sobre')})
+    document.querySelectorAll('meta').forEach(meta => {if(meta.name === 'theme-color'){meta.content = localStorage.getItem('temaDaPagina') === 'Escuro' ? '#333333' : '#FDFBEE'}})
+}
 
 //↓↓ POPUPS
 function abrirPopup(id){
@@ -41,11 +38,11 @@ function abrirPopup(id){
 function fecharPopup(id){
     document.querySelector(id).style.animation = 'popupDesaparecer 250ms ease-out';
 
-        //Aplica os estilos ao respectivo Popup
-        setTimeout(() => {
-            document.querySelector(id).style.display = 'none';
-            document.querySelector('#container_popup').style.display = 'none';
-            document.querySelector('html').style.overflow = 'scroll'
-            document.querySelector(id).style.animationName = 'popupAparecer'
-        }, 250);
+    //Aplica os estilos ao respectivo Popup
+    setTimeout(() => {
+        document.querySelector(id).style.display = 'none';
+        document.querySelector('#container_popup').style.display = 'none';
+        document.querySelector('html').style.overflow = 'scroll'
+        document.querySelector(id).style.animationName = 'popupAparecer'
+    }, 250);
 }

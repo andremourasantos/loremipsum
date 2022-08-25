@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta name="theme-color" content="#COR"/>
-    
     <!-- SEO TAGS -->
     <meta property="og:title" content="Gerador de Lorem Ipsum">
     <meta property="og:description" content="DESCRIÇÃO.">
@@ -17,12 +15,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="André Moura Santos">
     <meta name="application-name" content="Link de WhatsApp">
+    <meta name="theme-color" content="#FDFBEE"/>
 
     <!-- LINKS -->
-    <link rel="stylesheet" href="essencial.css">
     <link rel="stylesheet" href="universal.css">
     <link rel="stylesheet" href="index.css">
-    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://andremourasantos.com/wplink/imagens/info_modo_escuro.png" type="image/x-icon">
 
     <!--SCRIPTS-->
     <script defer src="https://unpkg.com/phosphor-icons"></script>
@@ -36,17 +34,15 @@
             <img id="logo_cabeçalho" src="https://andremourasantos.com/wplink/imagens/info_modo_escuro.png" alt="Logo do Gerador de Lorem Ipsum." width="60" height="60">
             <div>
                 <h1>Gerador de Lorem Ipsum</h1>
-                <p>Crie textos genéricos para utilizar em seus protótipos.</p>
+                <p>Textos genéricos para seus protótipos.</p>
             </div>
         </section>
         
         <!--DIREITA/BAIXO-->
         <section id="icones_cabecalho">
             <button class="btn_menu_icone" id="alteraTemaPagina"><i class="ph-sun-fill"></i></button>
-            <button class="btn_menu_icone" onclick="abrirPopup('#popup_ajustes')" id="icone_Ajustes"><i class="ph-sliders-fill"></i></button>
+            <button class="btn_menu_icone" id="icone_Ajustes"><i class="ph-sliders-fill"></i></button>
             <button class="btn_menu_icone" id="icone_Info"><i class="ph-info-fill"></i></button>
-
-
         </section>
     </header>
     <main class="duas_colunas">
@@ -54,12 +50,12 @@
         <section id="container_ferramenta">
             <div id="ferramenta">
                 <div id="entrada_1">
-                    <img src="https://andremourasantos.com/wplink/imagens/info_modo_escuro.png" alt="">
+                    <i class="ph-article-fill"></i>
                     <div>
                         <p>Quantidade e tamanho do texto</p>
                         <div>
-                            <input type="number" name="quantidade_txt" id="quantidade_txt" value="1" max="99" min="1">
-                            <select name="tamanho_txt" id="tamano_txt">
+                            <input type="number" name="quantidade_txt" id="quantidade_txt" value="1" max="20" min="1">
+                            <select name="tamanho_txt" id="tamanho_txt">
                                 <option value="palavra">Palavra</option>
                                 <option value="frase">Frase</option>
                                 <option value="paragrafo">Parágrafo</option>
@@ -67,12 +63,12 @@
                         </div>
                     </div>
                 </div>
+                <div id="saida">
+                    <textarea name="saida_txt" id="saida_txt" cols="30" rows="10" autocomplete="off" autocorrect="off" style="resize: none;"></textarea>
+                    <button id="copiar_saida_txt">Copiar</button>
+                </div>
+                <button id="gerar_lorem">Gerar texto</button>
             </div>
-            <div id="saida">
-                <textarea name="saida_txt" id="saida_txt" cols="30" rows="10"></textarea>
-                <button id="copiar_saida_txt">Copiar</button>
-            </div>
-            <button id="gerar_lorem">Gerar texto</button>
         </section>
 
         <!--DIREITA/BAIXO-->

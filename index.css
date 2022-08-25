@@ -1,2 +1,9 @@
 /*↓ ÍCONES ↓*/
-#icones_cabecalho > button:nth-child(2) {-webkit-mask-image: url(imagens/ajustes.svg); mask-image: url(imagens/ajustes.svg);}
+#icones_cabecalho > button:nth-child(2) i {transform: rotate(90deg);}
+
+/*↓ CONTEÚDO ↓*/
+    /*↓ FERRAMENTA ↓*/
+    #ferramenta {background-color: var(--cor_plano_de_fundo_3); max-width: 80%; max-height: 80%; margin: auto; border-radius: var(--arredondamento_borda);}
+    #entrada_1 {display: flex; margin: 20px auto; width: fit-content; background-color: var(--cor_plano_de_fundo); border: 2px solid var(--cor_borda_principal); border-radius: var(--arredondamento_borda_interno); padding: 10px 20px; gap: 20px;}
+
+    #entrada_1 p {font-weight: 500;}
