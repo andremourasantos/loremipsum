@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
 
+    <!--SCRIPTS-->
+    <script defer src="https://unpkg.com/phosphor-icons"></script>
+
     <title>Gerador de Lorem Ipsum</title>
 </head>
 <body>
@@ -39,9 +42,11 @@
         
         <!--DIREITA/BAIXO-->
         <section id="icones_cabecalho">
-            <!--POSIÇÃO FIXA: ALTERAR TEMA--><button class="btn_menu_icone" onclick="alterarTema(1)"></button>
-            <button class="btn_menu_icone" onclick="abrirPopup('#popup_ajustes')"></button>
-            <!--POSIÇÃO FIXA: SOBRE O PROJETO--><button class="btn_menu_icone" onclick="abrirPopup('#popup_sobre')"></button>
+            <button class="btn_menu_icone" id="alteraTemaPagina"><i class="ph-sun-fill"></i></button>
+            <button class="btn_menu_icone" onclick="abrirPopup('#popup_ajustes')" id="icone_Ajustes"><i class="ph-sliders-fill"></i></button>
+            <button class="btn_menu_icone" id="icone_Info"><i class="ph-info-fill"></i></button>
+
+
         </section>
     </header>
     <main class="duas_colunas">

@@ -1,16 +1,26 @@
+//↓↓ SCRIPTS PRIMORDIAIS
 window.addEventListener('DOMContentLoaded', () => {
     /*REFERÊNCIA DE TEMA*/
     if(localStorage.getItem('temaDaPagina') != null){alterarTema(0)} else{localStorage.setItem('temaDaPagina', 'Claro')}})
 
 function alterarTema(interacao=0){
-    let icone = document.querySelector('#icones_cabecalho button:first-of-type')
+    let icone = document.querySelector("#alteraTemaPagina > i")
 
     if(localStorage.getItem('temaDaPagina') === 'Escuro'){
-        if(interacao === 1){document.body.classList.remove('modo_escuro'); localStorage.setItem('temaDaPagina', 'Claro'); icone.style.webkitMaskImage = 'url(imagens/modo-claro.svg)'} else {document.body.classList.add('modo_escuro'); icone.style.webkitMaskImage = 'url(imagens/modo-escuro.svg)';}}
+        if(interacao === 1){setTimeout(() => {
+            document.body.classList.remove('modo_escuro'); localStorage.setItem('temaDaPagina', 'Claro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)'
+        }, 125);} else {document.body.classList.add('modo_escuro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)'}}
         
-        else {if(interacao ===1){document.body.classList.add('modo_escuro'); localStorage.setItem('temaDaPagina', 'Escuro'); icone.style.webkitMaskImage = 'url(imagens/modo-escuro.svg)'} else {document.body.classList.remove('modo_escuro'); icone.style.webkitMaskImage = 'url(imagens/modo-claro.svg)';}
+        else {if(interacao ===1){setTimeout(() => {
+            document.body.classList.add('modo_escuro'); localStorage.setItem('temaDaPagina', 'Escuro'); icone.className = 'ph-moon-fill'; icone.style.transform = 'scaleX(-1)'
+        }, 125);} else {document.body.classList.remove('modo_escuro'); icone.className = 'ph-sun-fill'; icone.style.transform = 'scaleX(1)'}
     }
 }
+
+//↓↓ ACIONADORES
+document.querySelector('#alteraTemaPagina').addEventListener('click', ()=>{alterarTema(1)})
+document.querySelector('#icone_Ajustes').addEventListener('click', ()=>{abrirPopup('#popup_ajustes')})
+document.querySelector('#icone_Info').addEventListener('click', ()=>{abrirPopup('#popup_sobre')})
 
 //↓↓ POPUPS
 function abrirPopup(id){
@@ -18,9 +28,11 @@ function abrirPopup(id){
     document.querySelectorAll('*[id^="popup_"]').forEach(popup => {popup.style.display = 'none'})
 
     //Aplica os estilos ao respectivo Popup
-    document.querySelector('html').style.overflow = 'hidden';
-    document.querySelector('#container_popup').style.display = 'flex';
-    document.querySelector(id).style.display = 'block';
+    setTimeout(() => {
+        document.querySelector('html').style.overflow = 'hidden';
+        document.querySelector('#container_popup').style.display = 'flex';
+        document.querySelector(id).style.display = 'block';
+    }, 125);
 
     //Atalho de teclado para fechar Popup
     window.addEventListener('keyup', tecla => {if(tecla.code === 'Escape'){fecharPopup(id)}})
@@ -37,4 +49,3 @@ function fecharPopup(id){
             document.querySelector(id).style.animationName = 'popupAparecer'
         }, 250);
 }
-
