@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {font-family: var(--texto_titulo);}
 h1 {font-size: var(--tamanho_titulo_g); color: var(--cor_titulo_principal);}
 h2 {font-size: var(--tamanho_titulo_m); color: var(--cor_texto);}
 p {font-size: var(--tamanho_texto_m); color: var(--cor_texto);}
-button {font-family: var(--texto_titulo); font-weight: bold; transition-duration: 250ms; border: none; border-radius: 0; padding: 5px 10px; cursor: pointer; font-size: var(--tamanho_texto_p); background-color: transparent;}
+button {display: block; font-family: var(--texto_titulo); font-weight: bold; transition-duration: 250ms; border: none; border-radius: 0; padding: 5px 10px; cursor: pointer; font-size: var(--tamanho_texto_p); background-color: transparent;}
 button:active {transform: scale(0.9);}
 button:disabled {filter: grayscale(1); cursor: not-allowed;}
 header p, footer p {font-size: var(--tamanho_texto_p);}
@@ -72,6 +72,7 @@ main.duas_colunas {display: flex; flex-direction: row; justify-content: center; 
 main.duas_colunas > section {width: 50vw;}
 
 /*↓ BOTÕES ↓*/
+.btn_acao {background-color: var(--cor_btn_principal); color: var(--cor_texto_btn_principal); border-radius: var(--arredondamento_borda_btn);}
 .btn_menu_icone {width: 40px; height: 40px; padding: 0;}
 .container_btns_popup {display: flex; align-items: center; justify-content: center; gap: 20px; flex-grow: 1; width: 100%;}
 .btn_popup {min-height: 50px; width: 100%; background-color: var(--cor_plano_de_fundo_2); color: var(--cor_texto_btn_secundario); border-radius: var(--arredondamento_borda_btn);}
@@ -117,6 +118,16 @@ article.popup {display: block; width: calc(80vw - 80px); max-width: 400px; min-h
 article.popup h2 {margin-top: 20px;}
 article.popup p {margin: 20px auto;}
 .container_btns_popup {margin-top: 20px;}
+
+    /*↓ MINI POPUPS ↓*/
+    article.minipopup {display:flex; flex-direction: column;justify-content: center; align-items: center; gap: 20px; max-width: calc(300px - 80px); max-height: calc(80vh - 80px); padding: 40px; text-align: center; color: var(--cor_texto); background-color: var(--cor_plano_de_fundo); border-radius: var(--arredondamento_borda); animation: popupAparecer 250ms ease-out;}
+
+    article.minipopup > img {margin-bottom: 20px;}
+
+/*↓ OUTROS ↓*/
+*:focus {outline-color: var(--cor_borda_secundaria);}
+
+input[type=number]::-webkit-inner-spin-button {display: none;}
 
 /*↓ RESPONSIVIDADE ↓*/
 @media screen and (max-width: 1024px) {

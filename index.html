@@ -3,8 +3,8 @@
 <head>
     <!-- SEO TAGS -->
     <meta property="og:title" content="Gerador de Lorem Ipsum">
-    <meta property="og:description" content="DESCRIÇÃO.">
-    <meta name="description" content="DESCRIÇÃO.">
+    <meta property="og:description" content="Crie textos para utilizar em protótipos, designs ou projetos pessoais para simular conteúdos reais.">
+    <meta name="description" content="Crie textos para utilizar em protótipos, designs ou projetos pessoais para simular conteúdos reais.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="www.andremourasantos.com/loremipsum">
     <meta name="image" property="og:image" content="https://andremourasantos.com/loremipsum/capa.png">
@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="https://andremourasantos.com/wplink/imagens/info_modo_escuro.png" type="image/x-icon">
 
     <!--SCRIPTS-->
-    <script defer src="https://unpkg.com/phosphor-icons"></script>
+    <script async src="https://unpkg.com/phosphor-icons"></script>
 
     <title>Gerador de Lorem Ipsum</title>
 </head>
@@ -54,8 +54,14 @@
                     <div>
                         <p>Quantidade e tamanho do texto</p>
                         <div>
-                            <input type="number" name="quantidade_txt" id="quantidade_txt" value="1" max="20" min="1">
-                            <select name="tamanho_txt" id="tamanho_txt">
+                            <div id="entrada_quantidade_txt" class="entrada_ferramenta">
+                                <button class="icone_aux_entrada" id="removerQuantidadeTxt"><i class="ph-minus-bold"></i></button>
+
+                                <input type="number" name="quantidade_txt" id="quantidade_txt" value="1" max="20" min="1" step="1">
+
+                                <button class="icone_aux_entrada" id="adicionarQuantidadeTxt"><i class="ph-plus-bold"></i></button>
+                            </div>
+                            <select name="tamanho_txt" id="tamanho_txt" class="entrada_ferramenta">
                                 <option value="palavra">Palavra</option>
                                 <option value="frase">Frase</option>
                                 <option value="paragrafo">Parágrafo</option>
@@ -64,10 +70,10 @@
                     </div>
                 </div>
                 <div id="saida">
-                    <textarea name="saida_txt" id="saida_txt" cols="30" rows="10" autocomplete="off" autocorrect="off" style="resize: none;"></textarea>
-                    <button id="copiar_saida_txt">Copiar</button>
+                    <textarea name="saida_txt" id="saida_txt" cols="20" rows="8" autocomplete="off" autocorrect="off" placeholder="Digite o número de itens desejados e o tipo para gerar o texto." style="resize: none;"></textarea>
+                    <button id="copiar_saida_txt" class="btn_acao">Copiar</button>
                 </div>
-                <button id="gerar_lorem">Gerar texto</button>
+                <button id="gerar_lorem" class="btn_acao">Gerar texto</button>
             </div>
         </section>
 
@@ -76,8 +82,8 @@
             <article id="container_informacoes">
                 <img loading="lazy" src="imagens/questao.png" alt="Ícone de pergunta." height="96" width="96">
                 <h2>Como funciona?</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quaerat odio animi fuga, quos consectetur quod fugiat eveniet similique dolor, earum aperiam a nesciunt ratione illo commodi, voluptatum cumque nihil. Soluta architecto labore, nisi iusto dolor ea minima nam veritatis?</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quaerat odio animi fuga, quos consectetur quod fugiat eveniet similique dolor, earum aperiam a nesciunt ratione illo commodi, voluptatum cumque nihil. Soluta architecto labore, nisi iusto dolor ea minima nam veritatis?</p>
+                <p>Para criar um texto Lorem Ipsum para o seu projeto, basta selecionar o tipo de texto desejado (escolhendo entre apenas palavras, frases ou parágrafos inteiros) e, em seguida, digitar a quantidade de itens. Você pode copiar o resultado clicando no botão "Copiar".</p>
+                <p>Muito comumente utilizados em protótipos e designs para popular áreas de conteúdos, o texto Lorem Ipsum vem de uma obra de Cícero, 45 AC, intitulada "De finibus bonorum et malorum" (Sobre os fins do bem e do mal), que fala sobre ética.</p>
             </article>
         </section>
     </main>
@@ -92,11 +98,12 @@
             <img src="imagens/sobre_popup.png" alt="" height="128" width="128">
             <aside>
                 <h2>Sobre o projeto</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, illo. Quisquam ducimus recusandae, asperiores accusantium facere quia alias incidunt animi praesentium odio eaque necessitatibus eius possimus, ut aliquid vero!</p>
-                <p>Ipsam, sit earum corrupti suscipit praesentium distinctio incidunt aut accusantium, obcaecati excepturi quod vero, est aliquid magni delectus blanditiis assumenda cupiditate.</p>
+                <p>O objetivo deste projeto é aprofundar meus conhecimentos com a criação em série de páginas similares, mas com funcionalidades diferentes.</p>
+                <p>Confira as últimas novidades da ferramenta <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('#popup_log_novidades')">clicando aqui</span> ou pressione Alt + L!</p>
+                <p>Todo o código da página é de livre acesso e se encontra no repositório do GitHub de André Moura Santos, com licença MIT.</p>
                 <div class="container_btns_popup">
                     <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('#popup_sobre')">Fechar</button>
-                    <button class="btn_popup btn_acao_popup">GitHub</button>
+                    <button class="btn_popup btn_acao_popup" id="link_github_popup">GitHub</button>
                 </div>
             </aside>
         </article>
@@ -113,8 +120,32 @@
                 </div>
             </aside>
         </article>
+
+        <!--LOG-->
+        <article class="popup" id="popup_log_novidades">
+            <img src="imagens/novidades_versao.png" alt="" height="128" width="128">
+            <aside>
+                <h2>Parece que você chegou cedo!</h2>
+                <p>Que legal, você está vendo a primeira versão da ferramenta!</p>
+                <p>O que achou das novidades? Você pode conferir as mudanças mais técnicas diretamente no meu <span style="text-decoration: underline; cursor: pointer;" onclick="abrirPopup('#popup_sobre')">repositório do GitHub</span>!</p>
+                <div class="container_btns_popup">
+                    <button class="btn_popup btn_fechar_popup" onclick="fecharPopup('#popup_log_novidades')">Fechar</button>
+                </div>
+            </aside>
+        </article>
+
+        <!--MINI NOTIFICAÇÕES-->
+            <!--BOAS-VINDAS!-->
+            <article class="minipopup" id="popup_BoasVindas">
+                <img src="imagens/sucesso_popup.png" alt="" height="96" width="96">
+                <div>
+                    <h3>Boas-vindas!</h3>
+                    <p>Vamos começar?</p>
+                </div>
+            </article>
     </section>
-<script defer src="essencial.js"></script>
+
 <script defer src="index.js"></script>
+<script defer src="essencial.js"></script>
 </body>
 </html>
