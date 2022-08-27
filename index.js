@@ -1,7 +1,7 @@
 //↓↓ INFO DA FERRAMENTA
 const FERRAMENTA = {
     nome: 'LoremIpsum',
-    versao: 'ALPHA 1.3',
+    versao: '1.0',
 }
 
 //↓↓ CONFIGURAÇÕES
