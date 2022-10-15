@@ -14,6 +14,14 @@ Uma simples ferramenta para criar textos de Lorem Ipsum para popular áreas de c
 - - - 
 
 ## Log
+
+- **Atualização 1.1**
+    - Adicioando PUAU.
+    - Adicionado o atributo title para os principais botões da página.
+    - Agora os arquivos universal.css e essencial.js foram removidos sendo importados do site principal.
+    - Agora os ícones Kawaii são importados do site principal.
+    - Foto de capa atualizada.
+
 - **Atualização 1.0**
     - Lançamento da ferramenta.
     - Criação do README.md.

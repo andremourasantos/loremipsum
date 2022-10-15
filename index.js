@@ -1,8 +1,33 @@
 //↓↓ INFO DA FERRAMENTA
-const FERRAMENTA = {
+let Ferramenta = {
     nome: 'LoremIpsum',
-    versao: '1.0',
+    info: 'versao:1.1;temaDaPagina:Claro',
+    PUAU: 'salvarDados:0;sincronizarTema:0;habilitarCookies:0',
+    temaDaPagina: null
 }
+
+//↓↓ CARREGAR ARQUIVOS
+window.addEventListener('DOMContentLoaded', async ()=> {
+    const rodape = document.querySelector('footer')
+    const popups = document.querySelector('#container_popup')
+    const mensagemErro = `<p>Não foi possível carregar este item :/</p>`
+
+    //CARREGAMENTO DOS PEDAÇOS
+        //RODAPÉ
+        importarRodape = async () => {
+            const res = await fetch('https://apps.andremourasantos.com/pedaco/footer.html')
+            if(res.status != 200){rodape.innerHTML = mensagemErro} else {
+            rodape.innerHTML = (await res.text()).toString(); 
+            }
+        }; importarRodape();
+
+        //PUAU
+        importarPUAU = async () => {
+            const res = await fetch('https://apps.andremourasantos.com/pedaco/puau.html')
+            popups.innerHTML += ((await res.text()).toString())
+            autoAjustePUAU();
+        }; importarPUAU();
+})
 
 //↓↓ CONFIGURAÇÕES
 const texto = [
@@ -24,31 +49,16 @@ let saida = document.querySelector('#saida_txt')
 let btnCopiarSaida = document.querySelector('#copiar_saida_txt')
 
 //↓↓ ATALHOS DE TECLADO
-window.addEventListener('keydown', tecla => {if(tecla.code == 'KeyL' && tecla.altKey == true){abrirPopup('#popup_log_novidades')}})
+window.addEventListener('keydown', tecla => {if(tecla.code == 'KeyL' && tecla.altKey == true){abrirPopup('popup_log_novidades')}})
 
 //↓↓ ACIONADORES
 document.querySelector('#alteraTemaPagina').addEventListener('click', ()=>{alterarTema(1)})
 
-document.querySelector('#icone_Ajustes').addEventListener('click', ()=>{abrirPopup('#popup_ajustes')})
+document.querySelector('#icone_Ajustes').addEventListener('click', ()=>{abrirPopup('popup_puau')})
 
-document.querySelector('#icone_Info').addEventListener('click', ()=>{abrirPopup('#popup_sobre')})
+document.querySelector('#icone_Info').addEventListener('click', ()=>{abrirPopup('popup_sobre')})
 
 btnCopiarSaida.addEventListener('click', () => {saida = document.querySelector('#saida_txt'); navigator.clipboard.writeText(saida.value); btnCopiarSaida.innerHTML = 'Copiado!'; setTimeout(()=>{btnCopiarSaida.innerHTML = 'Copiar'},1000)})
-
-/*
-quantidadeTexto.addEventListener('change', ()=>{
-    if(quantidadeTexto.value == 1){
-        console.log(1)
-        
-
-        
-    }
-    else{
-        console.log(2)
-        if(tamanhoTexto.options[0].outerText.charAt(tamanhoTexto.value.length - 1) === 's'){} else{for(i=0;i<Number(opcoesTamanhoTexto);i++){document.querySelector(`#tamanho_txt > option:nth-child(${i+1})`).innerText =+ 's'}}
-    }
-})
-*/
 
 //↓↓ LINKS EM POPUPS
 document.querySelector('#link_github_popup').addEventListener('click', function(){setTimeout(() => {
